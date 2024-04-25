@@ -1,4 +1,10 @@
+require "csv"
+require "pry-byebug"
+require_relative "controller"
+
 class Moviebook
+  attr_accessor :movies
+
   def initialize(csv_file_path)
     @csv_file_path = csv_file_path
     @movies = []
@@ -11,6 +17,11 @@ class Moviebook
 
   def create(movie)
     @movies << movie
+    save_csv
+  end
+
+  def destroy(movie_index)
+    @movies.delete_at(movie_index)
     save_csv
   end
 
