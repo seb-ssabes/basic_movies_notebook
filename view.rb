@@ -1,5 +1,5 @@
 class View
-  def display_list
+  def display_list(movies)
     movies.each_with_index do |movie, index|
       puts "#{index + 1} - #{movie.title} - Director: #{movie.director} - Year: #{movie.year} - Score: #{movie.score}"
     end
